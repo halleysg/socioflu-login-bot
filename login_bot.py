@@ -10,8 +10,7 @@ class SocioFluLoginBot:
 		self.driver = None
 		self.base_url = "https://sociofutebol.com.br/"
 		self.login_url = "https://nense.com.br"
-		self.home_url = f"{self.login_url}/home"
-		
+		self.home_url = f"{self.login_url}/planos"
 
 	def setup_driver(self):
 		"""Initialize the Chrome WebDriver"""
@@ -21,7 +20,7 @@ class SocioFluLoginBot:
 		options.add_argument('--disable-dev-shm-usage')
 		options.add_argument('--disable-notifications')
 		options.add_argument('--disable-gpu')
-  
+
 		self.driver = webdriver.Chrome(options=options)
 		self.driver.implicitly_wait(10)
 
@@ -60,7 +59,7 @@ class SocioFluLoginBot:
 				self.driver.get(self.login_url)
 
 			login_button = WebDriverWait(self.driver, 10).until(
-				EC.presence_of_element_located((By.CLASS_NAME, "fengi-user"))
+				EC.presence_of_element_located((By.CLASS_NAME, "header-18__container-wrapper-auth-button"))
 			)
 			login_button.click()
 			time.sleep(2)  # Wait for logout to complete
