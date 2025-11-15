@@ -1,0 +1,8 @@
+# Environment variables
+.env
+
+# Python
+.venv/
+
+# Logs
+logs/
